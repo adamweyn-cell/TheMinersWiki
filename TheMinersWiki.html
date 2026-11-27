@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Wiki | Homepage</title>
+    <style>
+        /* Basic reset and page background */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Verdana, sans-serif;
+            background-color: #d6cfc7; /* Light stone/sandstone color */
+            color: #111111;
+        }
+
+        /* Top Navigation Bar */
+        .navbar {
+            background-color: #3a3a3a;
+            border-bottom: 4px solid #1e1e1e;
+            padding: 12px 10px;
+            text-align: center;
+        }
+
+        .nav-btn {
+            display: inline-block;
+            padding: 8px 18px;
+            margin: 4px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            border: 3px solid #1a1a1a;
+            background-color: #6e6e6e;
+            box-shadow: inset 2px 2px 0px rgba(255,255,255,0.3);
+        }
+
+        .nav-btn:hover {
+            opacity: 0.9;
+            cursor: pointer;
+        }
+
+        /* Different button colors matching the screenshot */
+        .btn-brown {
+            background-color: #7c5838;
+        }
+
+        .btn-green {
+            background-color: #4f7932;
+        }
+
+        /* Hero Banner with CSS Blocky Sky, Grass, and Dirt */
+        .hero-banner {
+            background-color: #6b9cff; /* Minecraft sky blue */
+            border-bottom: 18px solid #593d29; /* Dirt layer */
+            box-shadow: inset 0 -10px 0 #568c32; /* Grass layer on top of dirt */
+            padding: 40px 20px 55px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Simple CSS Clouds */
+        .cloud {
+            background-color: rgba(255, 255, 255, 0.75);
+            height: 22px;
+            width: 90px;
+            position: absolute;
+            top: 25px;
+        }
+        .cloud-left { left: 8%; }
+        .cloud-right { right: 10%; top: 45px; width: 110px; }
+
+        /* Main Title */
+        .wiki-title {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 46px;
+            font-weight: 900;
+            margin: 0 0 20px 0;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 0px #000000;
+        }
+
+        .title-minecraft {
+            color: #d0d0d0;
+            background-color: #2b2b2b;
+            padding: 4px 12px;
+            border: 3px solid #000000;
+        }
+
+        .title-wiki {
+            color: #6cc349;
+            background-color: #3b2718;
+            padding: 4px 12px;
+            border: 3px solid #000000;
+        }
+
+        /* Search Bar Box */
+        .search-box {
+            max-width: 520px;
+            margin: 0 auto 20px auto;
+            background-color: #ffffff;
+            border: 4px solid #2b2b2b;
+            padding: 4px;
+            display: flex;
+        }
+
+        .search-input {
+            width: 100%;
+            border: none;
+            padding: 8px 10px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            outline: none;
+        }
+
+        .search-button {
+            background-color: #568c32;
+            color: white;
+            border: 2px solid #1e1e1e;
+            padding: 8px 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            background-color: #467328;
+        }
+
+        /* Welcome Text */
+        .welcome-text {
+            color: #ffffff;
+            font-size: 19px;
+            font-weight: bold;
+            max-width: 600px;
+            margin: 0 auto 18px auto;
+            text-shadow: 2px 2px 0px #000000;
+            line-height: 1.4;
+        }
+
+        /* Article Counter */
+        .article-counter {
+            display: inline-block;
+            background-color: #2b2b2b;
+            color: #ffffff;
+            border: 3px solid #111111;
+            padding: 6px 14px;
+            font-size: 15px;
+        }
+
+        .counter-number {
+            color: #8ce667;
+            font-weight: bold;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 17px;
+        }
+
+        /* Main 3-Column Layout Container */
+        .main-container {
+            max-width: 1050px;
+            margin: 25px auto;
+            padding: 0 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .column {
+            flex: 1;
+            min-width: 280px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Wiki Content Cards */
+        .wiki-card {
+            background-color: #e6e2dd;
+            border: 4px solid #2b2b2b;
+            box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+        }
+
+        /* Green Card Header Banner */
+        .card-header {
+            background-color: #4f7932;
+            color: #ffffff;
+            font-size: 19px;
+            font-weight: bold;
+            text-align: center;
+            padding: 8px;
+            border: 3px solid #1e1e1e;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 0px #000000;
+        }
+
+        /* Article Thumbnail + Title Row */
+        .article-top {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .thumb-box {
+            width: 85px;
+            height: 65px;
+            background-color: #1f1f1f;
+            border: 3px solid #3a3a3a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .article-meta h3 {
+            margin: 0 0 4px 0;
+            font-size: 18px;
+            color: #111111;
+        }
+
+        .article-meta p {
+            margin: 0;
+            font-size: 14px;
+            color: #444444;
+        }
+
+        .card-description {
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0 0 15px 0;
+            color: #222222;
+        }
+
+        /* Read More Buttons */
+        .btn-center {
+            text-align: center;
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            padding: 8px 22px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+            border: 3px solid #1a1a1a;
+            cursor: pointer;
+        }
+
+        .read-more-green {
+            background-color: #4f7932;
+        }
+
+        .read-more-green:hover {
+            background-color: #3f6227;
+        }
+
+        .read-more-brown {
+            background-color: #6d4c30;
+        }
+
+        .read-more-brown:hover {
+            background-color: #573c25;
+        }
+
+        /* Did You Know Bullet List */
+        .trivia-list {
+            padding-left: 20px;
+            margin: 0 0 15px 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .trivia-list li {
+            margin-bottom: 10px;
+        }
+
+        /* Community Portal Lists */
+        .portal-subtitle {
+            font-weight: bold;
+            font-size: 15px;
+            margin: 0 0 10px 0;
+            border-bottom: 2px solid #bdb7b0;
+            padding-bottom: 4px;
+        }
+
+        .portal-item {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .portal-item strong {
+            display: block;
+            color: #1b4d12;
+        }
+
+        .portal-item span {
+            color: #555555;
+            font-size: 13px;
+        }
+
+        /* Simple Notification Box (instead of alert) */
+        #status-msg {
+            display: none;
+            background-color: #ffffcc;
+            border: 3px solid #2b2b2b;
+            padding: 10px;
+            max-width: 500px;
+            margin: 15px auto 0 auto;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Pop-up Modal Overlay */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        /* Pop-up Modal Box */
+        .modal-box {
+            background-color: #e6e2dd;
+            border: 4px solid #1e1e1e;
+            max-width: 600px;
+            margin: 60px auto;
+            padding: 20px;
+            box-shadow: 6px 6px 0px #000000;
+            position: relative;
+        }
+
+        .modal-header {
+            background-color: #4f7932;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 10px 15px;
+            border: 3px solid #1e1e1e;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 0px #000000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-close-x {
+            background-color: #8c3232;
+            color: #ffffff;
+            border: 2px solid #1e1e1e;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 2px 8px;
+            cursor: pointer;
+        }
+
+        .modal-close-x:hover {
+            background-color: #6e2424;
+        }
+
+        .modal-subtitle {
+            font-size: 14px;
+            color: #555555;
+            font-weight: bold;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #bdb7b0;
+            padding-bottom: 6px;
+        }
+
+        .modal-body {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #111111;
+            margin-bottom: 20px;
+        }
+
+        .modal-body p {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .modal-body ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+
+        .modal-body li {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <div class="navbar">
+        <a href="#explore" class="nav-btn" onclick="showMessage('Exploring Minecraft Wiki categories...')">Explore &#9662;</a>
+        <a href="#blocks" class="nav-btn" onclick="showMessage('Viewing Blocks page...')">Blocks</a>
+        <a href="#items" class="nav-btn btn-brown" onclick="showMessage('Viewing Items page...')">Items</a>
+        <a href="#mobs" class="nav-btn btn-green" onclick="showMessage('Viewing Mobs page...')">Mobs</a>
+        <a href="#crafting" class="nav-btn btn-brown" onclick="showMessage('Viewing Crafting Recipes...')">Crafting</a>
+        <a href="#community" class="nav-btn" onclick="showMessage('Opening Community Portal...')">Community &#9662;</a>
+    </div>
+
+    <!-- Hero Banner Section -->
+    <div class="hero-banner">
+        <!-- Decorative CSS Clouds -->
+        <div class="cloud cloud-left"></div>
+        <div class="cloud cloud-right"></div>
+
+        <!-- Minecraft Wiki Logo Text -->
+        <h1 class="wiki-title">
+            <span class="title-minecraft">MINECRAFT</span>
+            <span class="title-wiki">WIKI</span>
+        </h1>
+
+        <!-- Search Bar -->
+        <form class="search-box" onsubmit="handleSearch(event)">
+            <input type="text" id="searchInput" class="search-input" placeholder="Search the Minecraft Wiki...">
+            <button type="submit" class="search-button">&#128269; Search</button>
+        </form>
+
+        <!-- Welcome Text -->
+        <p class="welcome-text">
+            Welcome to the Minecraft Wiki, the ultimate collaborative encyclopedia that anyone can edit!
+        </p>
+
+        <!-- Article Counter Badge -->
+        <div class="article-counter">
+            <span class="counter-number">143,842</span> articles and counting!
+        </div>
+
+        <!-- Feedback message box for interactive buttons -->
+        <div id="status-msg"></div>
+    </div>
+
+    <!-- Main 3-Column Content Grid -->
+    <div class="main-container">
+
+        <!-- LEFT COLUMN -->
+        <div class="column">
+            <!-- Card 1: Featured Article (Ender Dragon) -->
+            <div class="wiki-card">
+                <div class="card-header">Featured Article</div>
+                <div class="article-top">
+                    <div class="thumb-box">
+                        <!-- Simple Inline SVG of Ender Dragon Face -->
+                        <svg width="56" height="56" viewBox="0 0 16 16">
+                            <rect width="16" height="16" fill="#1a1a1a"/>
+                            <rect x="2" y="2" width="12" height="12" fill="#2b2b2b"/>
+                            <!-- Dragon Eyes -->
+                            <rect x="3" y="7" width="3" height="2" fill="#cc00ff"/>
+                            <rect x="4" y="7" width="1" height="2" fill="#ff99ff"/>
+                            <rect x="10" y="7" width="3" height="2" fill="#cc00ff"/>
+                            <rect x="11" y="7" width="1" height="2" fill="#ff99ff"/>
+                            <!-- Snout -->
+                            <rect x="5" y="10" width="6" height="4" fill="#141414"/>
+                        </svg>
+                    </div>
+                    <div class="article-meta">
+                        <h3>The Ender Dragon</h3>
+                        <p>Boss Mob &bull; Version 1.20</p>
+                    </div>
+                </div>
+                <p class="card-description">
+                    The Ender Dragon is a giant flying boss mob found when first entering the End dimension. It is the largest naturally spawning mob in the game and guards the exit portal back to the Overworld.
+                </p>
+                <div class="btn-center">
+                    <button class="read-more-btn read-more-green" onclick="openArticle('enderDragon')">Read More</button>
+                </div>
+            </div>
+
+            <!-- Card 2: Featured Article (Caves & Cliffs) -->
+            <div class="wiki-card">
+                <div class="card-header">Featured Article</div>
+                <div class="article-top">
+                    <div class="thumb-box">
+                        <!-- Simple Inline SVG of Mountain & Cave Block -->
+                        <svg width="56" height="56" viewBox="0 0 16 16">
+                            <rect width="16" height="16" fill="#78a7ff"/>
+                            <polygon points="1,15 6,4 11,15" fill="#7d7d7d"/>
+                            <polygon points="6,15 11,6 15,15" fill="#5e5e5e"/>
+                            <polygon points="6,4 4,8 8,8" fill="#ffffff"/>
+                            <rect x="0" y="13" width="16" height="3" fill="#4f7932"/>
+                        </svg>
+                    </div>
+                    <div class="article-meta">
+                        <h3>The Caves &amp; Cliffs</h3>
+                        <p>Major Update &bull; Version 1.18</p>
+                    </div>
+                </div>
+                <p class="card-description">
+                    The Caves &amp; Cliffs update completely overhauled Overworld terrain generation, introducing massive lush caves, deep dripstone caverns, towering jagged peaks, and new ore distribution levels.
+                </p>
+                <div class="btn-center">
+                    <button class="read-more-btn read-more-green" onclick="openArticle('cavesCliffs')">Read More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MIDDLE COLUMN -->
+        <div class="column">
+            <!-- Card 3: Active Events -->
+            <div class="wiki-card">
+                <div class="card-header">Active Events</div>
+                <div class="article-top">
+                    <div class="thumb-box" style="background-color: #2c4a22;">
+                        <!-- Simple SVG Emerald / Lush Cave Icon -->
+                        <svg width="56" height="56" viewBox="0 0 16 16">
+                            <rect width="16" height="16" fill="#2d4722"/>
+                            <polygon points="8,2 13,6 13,11 8,14 3,11 3,6" fill="#17dd62"/>
+                            <polygon points="8,4 11,6 11,10 8,12 5,10 5,6" fill="#82f5aa"/>
+                        </svg>
+                    </div>
+                    <div class="article-meta">
+                        <h3>The Caves &amp; Cliffs Update</h3>
+                        <p>Community Event &bull; Version 1.20</p>
+                    </div>
+                </div>
+                <div class="btn-center">
+                    <button class="read-more-btn read-more-brown" onclick="openArticle('activeEvents')">Read More</button>
+                </div>
+            </div>
+
+            <!-- Card 4: Did You Know? -->
+            <div class="wiki-card">
+                <div class="card-header">Did You Know?</div>
+                <ul class="trivia-list">
+                    <li>Creepers were originally created by accident when Notch tried to code a pig model and mixed up the height and length values.</li>
+                    <li>Mining an Obsidian block requires a Diamond or Netherite pickaxe and takes 9.4 seconds without enchantments.</li>
+                    <li>Endermen speak distorted English phrases played backward, such as "Here we go" and "What's up?".</li>
+                    <li>A single bucket of lava can smelt up to 100 items in a furnace, making it the longest-lasting fuel source.</li>
+                    <li>Cats can scare away Creepers and Phantoms, and they also prevent fall damage completely.</li>
+                </ul>
+                <div class="btn-center">
+                    <button class="read-more-btn read-more-brown" onclick="openArticle('didYouKnow')">Read More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MIDDLE COLUMN -->
+        <div class="column">
+            <!-- Card 3: Active Events -->
+            <div class="wiki-card">
+                <div class="card-header">Active Events</div>
+                <div class="article-top">
+                    <div class="thumb-box" style="background-color: #2c4a22;">
+                        <!-- Simple SVG Emerald / Lush Cave Icon -->
+                        <svg width="56" height="56" viewBox="0 0 16 16">
+                            <rect width="16" height="16" fill="#2d4722"/>
+                            <polygon points="8,2 13,6 13,11 8,14 3,11 3,6" fill="#17dd62"/>
+                            <polygon points="8,4 11,6 11,10 8,12 5,10 5,6" fill="#82f5aa"/>
+                        </svg>
+                    </div>
+                    <div class="article-meta">
+                        <h3>The Caves &amp; Cliffs Update</h3>
+                        <p>Community Event &bull; Version 1.20</p>
+                    </div>
+                </div>
+                <div class="btn-center">
+                    <button class="read-more-btn read-more-brown" onclick="showMessage('Opening Active Events page...')">Read More</button>
+                </div>
+            </div>
+
+            <!-- Card 4: Did You Know? -->
+            <div class="wiki-card">
+                <div class="card-header">Did You Know?</div>
+                <ul class="trivia-list">
+                    <li>Creepers were originally created by accident when Notch tried to code a pig model and mixed up the height and length values.</li>
+                    <li>Mining an Obsidian block requires a Diamond or Netherite pickaxe and takes 9.4 seconds without enchantments.</li>
+                    <li>Endermen speak distorted English phrases played backward, such as "Here we go" and "What's up?".</li>
+                    <li>A single bucket of lava can smelt up to 100 items in a furnace, making it the longest-lasting fuel source.</li>
+                    <li>Cats can scare away Creepers and Phantoms, and they also prevent fall damage completely.</li>
+                </ul>
+                <div class="btn-center">
+                    <button class="read-more-btn read-more-brown" onclick="showMessage('Loading more Minecraft trivia!')">Read More</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="column">
+            <!-- Card 5: Community Portal -->
+            <div class="wiki-card">
+                <div class="card-header">Community Portal</div>
+                <div class="portal-subtitle">Recently edited pages</div>
+
+                <div class="portal-item">
+                    <strong>Ender Dragon</strong>
+                    <span>3 recently edited pages</span>
+                </div>
+                <div class="portal-item">
+                    <strong>Diamond Pickaxe</strong>
+                    <span>2 recently edited pages</span>
+                </div>
+                <div class="portal-item">
+                    <strong>Creeper</strong>
+                    <span>5 recently edited pages</span>
+                </div>
+                <div class="portal-item">
+                    <strong>Nether Portal</strong>
+                    <span>2 recently edited pages</span>
+                </div>
+                <div class="portal-item">
+                    <strong>Redstone Comparator</strong>
+                    <span>4 recently edited pages</span>
+                </div>
+
+                <!-- Sub-section inside Right Column Card -->
+                <div class="card-header" style="margin-top: 20px;">Recent Contributions</div>
+
+                <div class="portal-item">
+                    <strong>Active VR Community discussions</strong>
+                    <span>2 parents &bull; 6 hours ago</span>
+                </div>
+                <div class="portal-item">
+                    <strong>Active Community discussions</strong>
+                    <span>9 parents &bull; 3 hours ago</span>
+                </div>
+                <div class="portal-item">
+                    <strong>Wiki Formatting Guidelines</strong>
+                    <span>4 editors &bull; 8 hours ago</span>
+                </div>
+                <div class="portal-item">
+                    <strong>General Community discussions</strong>
+                    <span>13 people &bull; 3 months ago</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Pop-Up Modal Window -->
+    <div id="articleModal" class="modal-overlay" onclick="closeModalOutside(event)">
+        <div class="modal-box">
+            <div class="modal-header">
+                <span id="modalTitle">Article Title</span>
+                <button class="modal-close-x" onclick="closeModal()">X</button>
+            </div>
+            <div id="modalSubtitle" class="modal-subtitle">Category &bull; Version</div>
+            <div id="modalBody" class="modal-body">
+                Article content loads here...
+            </div>
+            <div class="btn-center">
+                <button class="read-more-btn read-more-green" onclick="closeModal()">Close Article</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Basic Beginner JavaScript for Interactivity -->
+    <script>
+        // Store full article text for each Read More button
+        var wikiArticles = {
+            enderDragon: {
+                title: "The Ender Dragon",
+                subtitle: "Boss Mob • Health: 200 (100 Hearts) • Location: The End",
+                body: "<p><strong>Overview:</strong> The Ender Dragon is the first official boss mob added to Minecraft. She guards the central island of the End dimension and must be defeated to activate the exit portal.</p>" +
+                      "<p><strong>How to Defeat Her:</strong></p>" +
+                      "<ul>" +
+                      "<li>Destroy the <strong>End Crystals</strong> on top of the obsidian pillars first, because they heal the dragon during the fight.</li>" +
+                      "<li>Use a bow or snowball to break crystals protected by iron bars, or climb up carefully with blocks and water buckets.</li>" +
+                      "<li>Attack her head when she perches on the center fountain to deal maximum melee damage.</li>" +
+                      "</ul>" +
+                      "<p><strong>Rewards:</strong> Defeating the Ender Dragon drops 12,000 experience points (enough for ~68 levels), spawns the Dragon Egg, and opens an End Gateway to the outer End islands.</p>"
+            },
+            cavesCliffs: {
+                title: "The Caves & Cliffs Update",
+                subtitle: "Major Update • Java & Bedrock Edition 1.17 – 1.18",
+                body: "<p><strong>World Generation Overhaul:</strong> Caves & Cliffs raised the world build limit from Y=256 up to Y=320 and lowered the bottom of the world down to Y=-64.</p>" +
+                      "<p><strong>New Cave & Mountain Biomes:</strong></p>" +
+                      "<ul>" +
+                      "<li><strong>Lush Caves:</strong> Filled with glow berries, moss blocks, clay pools, and axolotls.</li>" +
+                      "<li><strong>Dripstone Caves:</strong> Packed with pointed stalactites and stalagmites that deal extra fall damage.</li>" +
+                      "<li><strong>Jagged & Frozen Peaks:</strong> Massive snow-covered mountains that tower above the clouds.</li>" +
+                      "</ul>" +
+                      "<p><strong>New Mobs & Blocks:</strong> Added Copper ore, Amethyst geodes, Axolotls, Goats, Glow Squids, and Deepslate below Y=0.</p>"
+            },
+            activeEvents: {
+                title: "Active Community Events & Version 1.20",
+                subtitle: "Wiki Collaboration & Patch Notes • Version 1.20",
+                body: "<p><strong>Current Wiki Event:</strong> Editors are currently updating biome guides, crafting tables, and mob behavior pages to match the latest game updates.</p>" +
+                      "<p><strong>Highlights from Version 1.20 (Trails & Tales):</strong></p>" +
+                      "<ul>" +
+                      "<li><strong>Archaeology:</strong> Use a Brush on Suspicious Sand and Gravel at Trail Ruins to uncover pottery sherds and sniffer eggs.</li>" +
+                      "<li><strong>Cherry Grove Biome:</strong> Rare pink-blossomed forests found on mountainsides with pink wood sets.</li>" +
+                      "<li><strong>Armor Trims & Camels:</strong> Customize armor with smithing templates and ride two-player camels across deserts.</li>" +
+                      "</ul>" +
+                      "<p>Want to help out? Click any page in the Community Portal to check recent edits!</p>"
+            },
+            didYouKnow: {
+                title: "Did You Know? — Extra Minecraft Trivia",
+                subtitle: "Fun Facts & Game Secrets",
+                body: "<ul>" +
+                      "<li><strong>The Accidental Creeper:</strong> In 2009, creator Markus 'Notch' Persson mixed up the height and length dimensions while coding a pig, creating the iconic green Creeper body shape.</li>" +
+                      "<li><strong>Ghast Sound Effects:</strong> The eerie sounds made by Ghasts in the Nether were actually recorded from music producer C418's sleeping cat waking up.</li>" +
+                      "<li><strong>Snow Golem Secrets:</strong> If you use Shears on a Snow Golem, its carved pumpkin head pops off and reveals its smiley face underneath!</li>" +
+                      "<li><strong>Johnny Vindicator:</strong> Naming a Vindicator 'Johnny' with a Name Tag causes it to attack almost every mob nearby.</li>" +
+                      "<li><strong>Upside-Down Mobs:</strong> Naming any mob 'Dinnerbone' or 'Grumm' flips it completely upside down.</li>" +
+                      "</ul>"
+            }
+        };
+
+        // Open the modal and load the selected article
+        function openArticle(articleKey) {
+            var article = wikiArticles[articleKey];
+            if (article) {
+                document.getElementById("modalTitle").textContent = article.title;
+                document.getElementById("modalSubtitle").textContent = article.subtitle;
+                document.getElementById("modalBody").innerHTML = article.body;
+                document.getElementById("articleModal").style.display = "block";
+            }
+        }
+
+        // Close the modal
+        function closeModal() {
+            document.getElementById("articleModal").style.display = "none";
+        }
+
+        // Close modal if the user clicks on the dark background outside the box
+        function closeModalOutside(event) {
+            if (event.target.id === "articleModal") {
+                closeModal();
+            }
+        }
+
+        // Close modal when pressing the Escape key
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+
+        function handleSearch(event) {
+            event.preventDefault();
+            var query = document.getElementById("searchInput").value;
+            if (query.trim() === "") {
+                showMessage("Please type something in the search box first!");
+            } else {
+                showMessage("Searching Minecraft Wiki for: '" + query + "'");
+            }
+        }
+
+        function showMessage(text) {
+            var msgBox = document.getElementById("status-msg");
+            msgBox.style.display = "block";
+            msgBox.textContent = text;
+        }
+    </script>
+
+</body>
+</html>
