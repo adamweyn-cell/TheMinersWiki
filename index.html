@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft Wiki | Homepage</title>
     <style>
-        /* Basic reset and page background */
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, Verdana, sans-serif;
-            background-color: #d6cfc7; /* Light stone/sandstone color */
+            background-color: #d6cfc7; 
             color: #111111;
         }
 
-        /* Top Navigation Bar */
         .navbar {
             background-color: #3a3a3a;
             border-bottom: 4px solid #1e1e1e;
@@ -40,7 +38,6 @@
             cursor: pointer;
         }
 
-        /* Different button colors matching the screenshot */
         .btn-brown {
             background-color: #7c5838;
         }
@@ -49,17 +46,15 @@
             background-color: #4f7932;
         }
 
-        /* Hero Banner with CSS Blocky Sky, Grass, and Dirt */
         .hero-banner {
-            background-color: #6b9cff; /* Minecraft sky blue */
-            border-bottom: 18px solid #593d29; /* Dirt layer */
-            box-shadow: inset 0 -10px 0 #568c32; /* Grass layer on top of dirt */
+            background-color: #6b9cff;
+            border-bottom: 18px solid #593d29;
+            box-shadow: inset 0 -10px 0 #568c32;
             padding: 40px 20px 55px 20px;
             text-align: center;
             position: relative;
         }
 
-        /* Simple CSS Clouds */
         .cloud {
             background-color: rgba(255, 255, 255, 0.75);
             height: 22px;
@@ -70,7 +65,6 @@
         .cloud-left { left: 8%; }
         .cloud-right { right: 10%; top: 45px; width: 110px; }
 
-        /* Main Title */
         .wiki-title {
             font-family: "Courier New", Courier, monospace;
             font-size: 46px;
@@ -94,7 +88,6 @@
             border: 3px solid #000000;
         }
 
-        /* Search Bar Box */
         .search-box {
             max-width: 520px;
             margin: 0 auto 20px auto;
@@ -126,7 +119,6 @@
             background-color: #467328;
         }
 
-        /* Welcome Text */
         .welcome-text {
             color: #ffffff;
             font-size: 19px;
@@ -137,7 +129,6 @@
             line-height: 1.4;
         }
 
-        /* Article Counter */
         .article-counter {
             display: inline-block;
             background-color: #2b2b2b;
@@ -154,7 +145,6 @@
             font-size: 17px;
         }
 
-        /* Main 3-Column Layout Container */
         .main-container {
             max-width: 1050px;
             margin: 25px auto;
@@ -173,7 +163,6 @@
             gap: 20px;
         }
 
-        /* Wiki Content Cards */
         .wiki-card {
             background-color: #e6e2dd;
             border: 4px solid #2b2b2b;
@@ -181,7 +170,6 @@
             padding: 15px;
         }
 
-        /* Green Card Header Banner */
         .card-header {
             background-color: #4f7932;
             color: #ffffff;
@@ -194,7 +182,6 @@
             text-shadow: 1px 1px 0px #000000;
         }
 
-        /* Article Thumbnail + Title Row */
         .article-top {
             display: flex;
             gap: 12px;
@@ -232,7 +219,6 @@
             color: #222222;
         }
 
-        /* Read More Buttons */
         .btn-center {
             text-align: center;
         }
@@ -264,7 +250,6 @@
             background-color: #573c25;
         }
 
-        /* Did You Know Bullet List */
         .trivia-list {
             padding-left: 20px;
             margin: 0 0 15px 0;
@@ -276,7 +261,6 @@
             margin-bottom: 10px;
         }
 
-        /* Community Portal Lists */
         .portal-subtitle {
             font-weight: bold;
             font-size: 15px;
@@ -300,7 +284,6 @@
             font-size: 13px;
         }
 
-        /* Simple Notification Box (instead of alert) */
         #status-msg {
             display: none;
             background-color: #ffffcc;
@@ -312,7 +295,6 @@
             text-align: center;
         }
 
-        /* Pop-up Modal Overlay */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -327,7 +309,7 @@
             overflow-y: auto;
         }
 
-        /* Pop-up Modal Box */
+
         .modal-box {
             background-color: #e6e2dd;
             border: 4px solid #1e1e1e;
@@ -399,7 +381,6 @@
 </head>
 <body>
 
-    <!-- Top Navigation Bar -->
     <div class="navbar">
         <a href="#explore" class="nav-btn" onclick="showMessage('Exploring Minecraft Wiki categories...')">Explore &#9662;</a>
         <a href="#blocks" class="nav-btn" onclick="showMessage('Viewing Blocks page...')">Blocks</a>
@@ -409,58 +390,45 @@
         <a href="#community" class="nav-btn" onclick="showMessage('Opening Community Portal...')">Community &#9662;</a>
     </div>
 
-    <!-- Hero Banner Section -->
     <div class="hero-banner">
-        <!-- Decorative CSS Clouds -->
         <div class="cloud cloud-left"></div>
         <div class="cloud cloud-right"></div>
 
-        <!-- Minecraft Wiki Logo Text -->
         <h1 class="wiki-title">
             <span class="title-minecraft">MINECRAFT</span>
             <span class="title-wiki">WIKI</span>
         </h1>
 
-        <!-- Search Bar -->
         <form class="search-box" onsubmit="handleSearch(event)">
             <input type="text" id="searchInput" class="search-input" placeholder="Search the Minecraft Wiki...">
             <button type="submit" class="search-button">&#128269; Search</button>
         </form>
 
-        <!-- Welcome Text -->
         <p class="welcome-text">
             Welcome to the Minecraft Wiki, the ultimate collaborative encyclopedia that anyone can edit!
         </p>
 
-        <!-- Article Counter Badge -->
         <div class="article-counter">
             <span class="counter-number">143,842</span> articles and counting!
         </div>
 
-        <!-- Feedback message box for interactive buttons -->
         <div id="status-msg"></div>
     </div>
 
-    <!-- Main 3-Column Content Grid -->
     <div class="main-container">
 
-        <!-- LEFT COLUMN -->
         <div class="column">
-            <!-- Card 1: Featured Article (Ender Dragon) -->
             <div class="wiki-card">
                 <div class="card-header">Featured Article</div>
                 <div class="article-top">
                     <div class="thumb-box">
-                        <!-- Simple Inline SVG of Ender Dragon Face -->
                         <svg width="56" height="56" viewBox="0 0 16 16">
                             <rect width="16" height="16" fill="#1a1a1a"/>
                             <rect x="2" y="2" width="12" height="12" fill="#2b2b2b"/>
-                            <!-- Dragon Eyes -->
                             <rect x="3" y="7" width="3" height="2" fill="#cc00ff"/>
                             <rect x="4" y="7" width="1" height="2" fill="#ff99ff"/>
                             <rect x="10" y="7" width="3" height="2" fill="#cc00ff"/>
                             <rect x="11" y="7" width="1" height="2" fill="#ff99ff"/>
-                            <!-- Snout -->
                             <rect x="5" y="10" width="6" height="4" fill="#141414"/>
                         </svg>
                     </div>
@@ -477,12 +445,10 @@
                 </div>
             </div>
 
-            <!-- Card 2: Featured Article (Caves & Cliffs) -->
             <div class="wiki-card">
                 <div class="card-header">Featured Article</div>
                 <div class="article-top">
                     <div class="thumb-box">
-                        <!-- Simple Inline SVG of Mountain & Cave Block -->
                         <svg width="56" height="56" viewBox="0 0 16 16">
                             <rect width="16" height="16" fill="#78a7ff"/>
                             <polygon points="1,15 6,4 11,15" fill="#7d7d7d"/>
@@ -505,14 +471,11 @@
             </div>
         </div>
 
-        <!-- MIDDLE COLUMN -->
         <div class="column">
-            <!-- Card 3: Active Events -->
             <div class="wiki-card">
                 <div class="card-header">Active Events</div>
                 <div class="article-top">
                     <div class="thumb-box" style="background-color: #2c4a22;">
-                        <!-- Simple SVG Emerald / Lush Cave Icon -->
                         <svg width="56" height="56" viewBox="0 0 16 16">
                             <rect width="16" height="16" fill="#2d4722"/>
                             <polygon points="8,2 13,6 13,11 8,14 3,11 3,6" fill="#17dd62"/>
@@ -529,7 +492,6 @@
                 </div>
             </div>
 
-            <!-- Card 4: Did You Know? -->
             <div class="wiki-card">
                 <div class="card-header">Did You Know?</div>
                 <ul class="trivia-list">
@@ -545,14 +507,11 @@
             </div>
         </div>
 
-        <!-- MIDDLE COLUMN -->
         <div class="column">
-            <!-- Card 3: Active Events -->
             <div class="wiki-card">
                 <div class="card-header">Active Events</div>
                 <div class="article-top">
                     <div class="thumb-box" style="background-color: #2c4a22;">
-                        <!-- Simple SVG Emerald / Lush Cave Icon -->
                         <svg width="56" height="56" viewBox="0 0 16 16">
                             <rect width="16" height="16" fill="#2d4722"/>
                             <polygon points="8,2 13,6 13,11 8,14 3,11 3,6" fill="#17dd62"/>
@@ -569,7 +528,6 @@
                 </div>
             </div>
 
-            <!-- Card 4: Did You Know? -->
             <div class="wiki-card">
                 <div class="card-header">Did You Know?</div>
                 <ul class="trivia-list">
@@ -585,9 +543,7 @@
             </div>
         </div>
 
-        <!-- RIGHT COLUMN -->
         <div class="column">
-            <!-- Card 5: Community Portal -->
             <div class="wiki-card">
                 <div class="card-header">Community Portal</div>
                 <div class="portal-subtitle">Recently edited pages</div>
@@ -613,7 +569,6 @@
                     <span>4 recently edited pages</span>
                 </div>
 
-                <!-- Sub-section inside Right Column Card -->
                 <div class="card-header" style="margin-top: 20px;">Recent Contributions</div>
 
                 <div class="portal-item">
@@ -637,7 +592,6 @@
 
     </div>
 
-    <!-- Pop-Up Modal Window -->
     <div id="articleModal" class="modal-overlay" onclick="closeModalOutside(event)">
         <div class="modal-box">
             <div class="modal-header">
@@ -654,9 +608,7 @@
         </div>
     </div>
 
-    <!-- Basic Beginner JavaScript for Interactivity -->
     <script>
-        // Store full article text for each Read More button
         var wikiArticles = {
             enderDragon: {
                 title: "The Ender Dragon",
@@ -707,7 +659,6 @@
             }
         };
 
-        // Open the modal and load the selected article
         function openArticle(articleKey) {
             var article = wikiArticles[articleKey];
             if (article) {
@@ -718,19 +669,15 @@
             }
         }
 
-        // Close the modal
         function closeModal() {
             document.getElementById("articleModal").style.display = "none";
         }
-
-        // Close modal if the user clicks on the dark background outside the box
         function closeModalOutside(event) {
             if (event.target.id === "articleModal") {
                 closeModal();
             }
         }
 
-        // Close modal when pressing the Escape key
         document.addEventListener("keydown", function(event) {
             if (event.key === "Escape") {
                 closeModal();
